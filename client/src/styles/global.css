@@ -59,10 +59,10 @@ img {
 @import url("./profile.css");
 
 /* -------- Home ---------- */
-/* @import url("./home.css"); */
+@import url("./home.css");
 
 /* -------- Status Modal ---------- */
-/* @import url("./status_modal.css"); */
+@import url("./status_modal.css");
 
 /* -------- Comments ---------- */
 /* @import url("./comments.css"); */

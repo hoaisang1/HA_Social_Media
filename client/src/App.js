@@ -9,9 +9,11 @@ import Alert from "./components/alert/Alert";
 import Header from "./components/header/Header";
 import { useSelector, useDispatch } from "react-redux";
 import { refreshToken } from "./redux/actions/authAction";
+import StatusModal from './components/StatusModal'
+import { getPosts } from './redux/actions/postAction'
 
 function App() {
-  const { auth } = useSelector((state) => state);
+  const { auth, status,modal } = useSelector((state) => state);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -22,13 +24,13 @@ function App() {
     // return () => socket.close()
   }, [dispatch]);
 
-  // useEffect(() => {
-  //   if(auth.token) {
-  //     dispatch(getPosts(auth.token))
-  //     dispatch(getSuggestions(auth.token))
-  //     dispatch(getNotifies(auth.token))
-  //   }
-  // }, [dispatch, auth.token])
+  useEffect(() => {
+    if(auth.token) {
+      dispatch(getPosts(auth.token))
+      // dispatch(getSuggestions(auth.token))
+      // dispatch(getNotifies(auth.token))
+    }
+  }, [dispatch, auth.token])
 
   // useEffect(() => {
   //   if (!("Notification" in window)) {
@@ -54,10 +56,11 @@ function App() {
     <Router>
       <Alert />
       <input type="checkbox" id="theme" />
-      <div className="App">
+      <div className={`App ${(status || modal) && 'mode'}`}>
         <div className="main">
           
           {auth.token && <Header />}
+          {status && <StatusModal />}
 
           <Route exact path="/" component={auth.token ? Home : Login} />
           <Route exact path="/register" component={Register} />

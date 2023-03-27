@@ -4,9 +4,9 @@ import alert from './alertReducers'
 // import alert from './alertReducer'
 import theme from './themeReducer'
 import profile from './profileReducer'
-// import status from './statusReducer'
-// import homePosts from './postReducer'
-// import modal from './modalReducer'
+import status from './statusReducer'
+import homePosts from './postReducer'
+import modal from './modalReducer'
 // import detailPost from './detailPostReducer'
 // import discover from './discoverReducer'
 // import suggestions from './suggestionsReducer'
@@ -23,9 +23,9 @@ export default combineReducers({
     alert,
     theme,
     profile,
-    // status,
-    // homePosts,
-    // modal,
+    status,
+    homePosts,
+    modal,
     // detailPost,
     // discover,
     // suggestions,

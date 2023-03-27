@@ -1,30 +1,11 @@
-// import React from 'react'
-// import Avatar from './Avatar'
-// import { useSelector } from 'react-redux'
-
-// const UserCard = ({users}) => {
-//     return (
-//         <div className='d-flex p-2 align-items-center justify-content-between w-100'>
-            
-//             {/* <Avatar src={user.avatar}  /> */}
-//             <div className="ml-1" >
-                
-//                 <small>{users.fullname}</small>
-//             </div>
-//         </div>
-//     )
-// }
-
-// export default UserCard
-
 import React from 'react'
 import Avatar from './Avatar'
 import { Link } from 'react-router-dom'
-import { useSelector } from 'react-redux'
+// import { useSelector } from 'react-redux'
 
 const UserCard = ({children, user, border, handleClose, setShowFollowers, setShowFollowing, msg}) => {
 
-    const { theme } = useSelector(state => state)
+    // const { theme } = useSelector(state => state)
 
     const handleCloseAll = () => {
         if(handleClose) handleClose()
@@ -32,32 +13,32 @@ const UserCard = ({children, user, border, handleClose, setShowFollowers, setSho
         if(setShowFollowing) setShowFollowing(false)
     }
 
-    const showMsg = (user) => {
-        return(
-            <>
-                <div style={{filter: theme ? 'invert(1)' : 'invert(0)'}}>
-                    {user.text}
-                </div>
-                {
-                    user.media.length > 0 && 
-                    <div>
-                        {user.media.length} <i className="fas fa-image" />
-                    </div>
-                }
+    // const showMsg = (user) => {
+    //     return(
+    //         <>
+    //             <div style={{filter: theme ? 'invert(1)' : 'invert(0)'}}>
+    //                 {user.text}
+    //             </div>
+    //             {
+    //                 user.media.length > 0 && 
+    //                 <div>
+    //                     {user.media.length} <i className="fas fa-image" />
+    //                 </div>
+    //             }
 
-                {
-                    user.call &&
-                    <span className="material-icons">
-                        {
-                            user.call.times === 0
-                            ? user.call.video ? 'videocam_off' : 'phone_disabled'
-                            : user.call.video ? 'video_camera_front' : 'call'
-                        }
-                    </span>
-                }
-            </>
-        )
-    }
+    //             {
+    //                 user.call &&
+    //                 <span className="material-icons">
+    //                     {
+    //                         user.call.times === 0
+    //                         ? user.call.video ? 'videocam_off' : 'phone_disabled'
+    //                         : user.call.video ? 'video_camera_front' : 'call'
+    //                     }
+    //                 </span>
+    //             }
+    //         </>
+    //     )
+    // }
 
 
     return (
@@ -73,9 +54,7 @@ const UserCard = ({children, user, border, handleClose, setShowFollowers, setSho
                         
                         <small style={{opacity: 0.7}}>
                             {
-                                msg 
-                                ? showMsg(user)
-                                : user.fullname
+                                user.fullname
                             }
                         </small>
                     </div>

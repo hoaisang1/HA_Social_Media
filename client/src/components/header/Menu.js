@@ -56,7 +56,7 @@ const Menu = () => {
                         type: GLOBALTYPES.THEME, payload: !theme
                     })}>
 
-                        {theme ? 'Light mode' : 'Dark mode'}
+                        {theme ? 'Chế độ sáng' : 'Chế độ tối'}
                     </label>
 
             <div className="dropdown-divider"></div>
